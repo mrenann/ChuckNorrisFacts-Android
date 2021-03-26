@@ -8,6 +8,7 @@ import com.mrenann.chucknorris_challenge_android.R
 import com.mrenann.chucknorris_challenge_android.databinding.ItemChucknorrisFactBinding
 import com.mrenann.chucknorris_challenge_android.model.Fact
 import okhttp3.internal.immutableListOf
+import java.util.*
 
 class FactsAdapter(
     var factsList: MutableList<Fact> = mutableListOf(),
@@ -34,8 +35,14 @@ class FactsAdapter(
         fun bind(fact: Fact, onClick: (Fact) -> Unit) = with(binding) {
 
             binding.tVfunFact.text = fact.value
+            fact.value?.let{ valor->
+
+                if(valor.length>80) binding.tVfunFact.textSize = 15F
+                    else binding.tVfunFact.textSize = 20F
+            }
+
             if (fact.categories?.isEmpty() == false){
-                binding.chipCategories.text = fact.categories?.get(0)
+                binding.chipCategories.text = fact.categories?.get(0)?.toUpperCase(Locale.ROOT)
             }else{
                 binding.chipCategories.text = binding.root.context.getString(R.string.uncategorized)
             }
