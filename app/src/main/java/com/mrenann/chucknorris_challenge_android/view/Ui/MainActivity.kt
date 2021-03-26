@@ -38,8 +38,7 @@ class MainActivity : AppCompatActivity() {
 
             sucess.observe(this@MainActivity){
                 binding.apply {
-                    shimmerLayout.stopShimmer()
-                    shimmerLayout.visibility = View.GONE
+                    shimmerStop()
                     rVfacts.apply {
                         layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
                         it.result?.let {  facts->
@@ -59,16 +58,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun searchBtn(){
-        binding.shimmerLayout.apply {
-            startShimmer()
-            visibility = View.VISIBLE
-        }
 
+        shimmerStart()
         factsAdapter.factsList.clear()
         val palavras = mutableListOf("de","te","go")
         viewModel.getFacts(palavras[Random.nextInt(0, 3)])
         factsAdapter.notifyDataSetChanged()
 
     }
+
+    fun shimmerStart(){
+        binding.shimmerLayout.apply {
+            startShimmer()
+            visibility = View.VISIBLE
+        }
+    }
+
+    fun shimmerStop(){
+        binding.shimmerLayout.apply {
+            stopShimmer()
+            visibility = View.GONE
+        }
+    }
+
 
 }
