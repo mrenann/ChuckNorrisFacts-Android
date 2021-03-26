@@ -27,8 +27,8 @@
 
         <ImageView
             android:id="@+id/sharebtn"
-            android:layout_width="32sp"
-            android:layout_height="32sp"
+            android:layout_width="@dimen/dimShareBtn"
+            android:layout_height="@dimen/dimShareBtn"
             android:src="@drawable/ic_baseline_share_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,9 +38,9 @@
             android:id="@+id/chipCategories"
             android:layout_width="wrap_content"
             android:layout_height="33sp"
-            android:text="UNCATEGORIZED"
+            android:text="@string/uncategorized"
             android:backgroundTint="@color/teal_200"
-            android:textSize="8sp"
+            android:textSize="@dimen/dimCategory"
             app:layout_constraintTop_toBottomOf="@id/tVfunFact"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
