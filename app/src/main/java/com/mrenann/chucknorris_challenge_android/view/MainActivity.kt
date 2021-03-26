@@ -15,11 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: FactsViewModel
 
-    private val factsAdapter : FactsAdapter by lazy {
-        FactsAdapter { fact->
-
-        }
-    }
+    private val factsAdapter : FactsAdapter by lazy { FactsAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setupRecyclerView(){
+    private fun setupRecyclerView(){
         viewModel.sucess.observe(this){
             binding.rVfacts.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)

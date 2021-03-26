@@ -13,8 +13,7 @@ import okhttp3.internal.immutableListOf
 import java.util.*
 
 class FactsAdapter(
-    var factsList: MutableList<Fact> = mutableListOf(),
-    private val onFactClicked: (Fact?) -> Unit
+    var factsList: MutableList<Fact> = mutableListOf()
 ): RecyclerView.Adapter<FactsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,23 +27,17 @@ class FactsAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(factsList[position],onFactClicked)
+        holder.bind(factsList[position])
     }
 
     class ViewHolder(
         private val binding: ItemChucknorrisFactBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(fact: Fact, onClick: (Fact) -> Unit) = with(binding) {
+        fun bind(fact: Fact) = with(binding) {
 
            setupValues(fact)
 
-            itemView.setOnClickListener {
-                onClick(fact)
-            }
-
-            binding.sharebtn.setOnClickListener {
-                shareLink(fact)
-            }
+            binding.sharebtn.setOnClickListener { shareLink(fact) }
 
         }
 
