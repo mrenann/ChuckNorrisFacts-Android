@@ -2,6 +2,7 @@ package com.mrenann.chucknorris_challenge_android.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mrenann.chucknorris_challenge_android.adapter.FactsAdapter
@@ -18,9 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.shimmerLayout.stopShimmer()
+        binding.shimmerLayout.visibility = View.GONE
 
         viewModel = ViewModelProvider(this).get(FactsViewModel::class.java)
-
+        viewModel.getFacts("dev")
         setupRecyclerView()
 
         binding.apply {
@@ -32,6 +35,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRecyclerView(){
         viewModel.sucess.observe(this){
+            binding.shimmerLayout.stopShimmer()
+            binding.shimmerLayout.visibility = View.GONE
             binding.rVfacts.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
                 it.result?.let {  facts->
@@ -43,7 +48,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun searchBtn(){
-        viewModel.getFacts("dev")
+        binding.shimmerLayout.startShimmer()
+        binding.shimmerLayout.visibility = View.VISIBLE
+        factsAdapter.factsList.clear()
+        factsAdapter.notifyDataSetChanged()
+
     }
 
 }

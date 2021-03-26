@@ -10,4 +10,6 @@
     <color name="bgLight">#FFFFFFFF</color>
     <color name="bgDark">#171A1F</color>
     <color name="cardBg">#60656D</color>
+    <color name="grey">#CCCCCC</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
