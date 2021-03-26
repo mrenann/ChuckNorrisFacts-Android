@@ -9,6 +9,6 @@ import retrofit2.http.Query
 interface ChuckFactsAPI {
     @GET("search")
     suspend fun search(
-        @Query("query") query: String? = "dev"
+        @Query("query") query: String? = ""
     ): Response<FactsResult>
 }

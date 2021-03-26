@@ -27,8 +27,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel = ViewModelProvider(this).get(FactsViewModel::class.java)
-        viewModel.getFacts("dev")
 
+        setupRecyclerView()
+
+        binding.apply {
+            iVsearch.setOnClickListener {
+                searchBtn()
+            }
+        }
+    }
+
+    fun setupRecyclerView(){
         viewModel.sucess.observe(this){
             binding.rVfacts.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
@@ -38,7 +47,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-
     }
+
+    private fun searchBtn(){
+        viewModel.getFacts("dev")
+    }
+
+
+
 }

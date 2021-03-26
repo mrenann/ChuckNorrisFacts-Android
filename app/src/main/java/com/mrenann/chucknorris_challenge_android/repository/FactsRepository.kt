@@ -6,7 +6,7 @@ import java.lang.Exception
 
 class FactsRepository {
 
-    suspend fun getFacts(query:String): ResponseAPI {
+    suspend fun getFacts(query:String = ""): ResponseAPI {
         return try{
             val response = APIService.api.search(query)
             if (response.isSuccessful) {

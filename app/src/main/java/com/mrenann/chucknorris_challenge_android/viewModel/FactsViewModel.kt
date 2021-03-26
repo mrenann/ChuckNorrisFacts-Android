@@ -18,7 +18,7 @@ class FactsViewModel: ViewModel() {
         FactsBusiness()
     }
 
-    fun getFacts(query:String) {
+    fun getFacts(query:String = "") {
         viewModelScope.launch {
             when(val response = detailed.getFacts(query) ) {
                 is ResponseAPI.Success -> {

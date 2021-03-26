@@ -9,7 +9,7 @@ class FactsBusiness {
         FactsRepository()
     }
 
-    suspend fun getFacts(query:String): ResponseAPI{
+    suspend fun getFacts(query:String = ""): ResponseAPI{
         val response = repository.getFacts(query)
         return if(response is ResponseAPI.Success) {
             val resposta = response.data as FactsResult
