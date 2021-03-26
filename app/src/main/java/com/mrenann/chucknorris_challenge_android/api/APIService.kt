@@ -1,6 +1,6 @@
 package com.mrenann.chucknorris_challenge_android.api
 
-import com.mrenann.chucknorris_challenge_android.utils.Constants.Api.URL
+import com.mrenann.chucknorris_challenge_android.utils.Constants.Api.API_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -12,7 +12,7 @@ object APIService {
 
     private fun getApiClient(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(URL)
+            .baseUrl(API_URL)
             .client(getInterceptorClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()

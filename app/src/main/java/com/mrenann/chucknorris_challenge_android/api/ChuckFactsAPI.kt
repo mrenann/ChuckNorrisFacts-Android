@@ -4,10 +4,11 @@ import com.mrenann.chucknorris_challenge_android.model.FactsResult
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ChuckFactsAPI {
-    @GET("search?query={query}")
+    @GET("search")
     suspend fun search(
-        @Path("query") query: String
+        @Query("query") query: String? = "dev"
     ): Response<FactsResult>
 }

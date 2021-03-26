@@ -1,13 +1,16 @@
 package com.mrenann.chucknorris_challenge_android.adapter
 
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.mrenann.chucknorris_challenge_android.R
 import com.mrenann.chucknorris_challenge_android.databinding.ItemChucknorrisFactBinding
 import com.mrenann.chucknorris_challenge_android.model.Fact
+import okhttp3.internal.immutableListOf
 
-class FactsAdapter (
-    var factsList: MutableList<Fact>,
+class FactsAdapter(
+    var factsList: MutableList<Fact> = mutableListOf(),
     private val onFactClicked: (Fact?) -> Unit
 ): RecyclerView.Adapter<FactsAdapter.ViewHolder>() {
 
@@ -30,6 +33,12 @@ class FactsAdapter (
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(fact: Fact, onClick: (Fact) -> Unit) = with(binding) {
 
+            binding.tVfunFact.text = fact.value
+            if (fact.categories?.isEmpty() == false){
+                binding.chipCategories.text = fact.categories?.get(0)
+            }else{
+                binding.chipCategories.text = binding.root.context.getString(R.string.uncategorized)
+            }
             itemView.setOnClickListener {
                 onClick(fact)
             }
