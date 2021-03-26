@@ -1,8 +1,10 @@
 package com.mrenann.chucknorris_challenge_android.adapter
 
+import android.content.Intent
 import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.mrenann.chucknorris_challenge_android.R
 import com.mrenann.chucknorris_challenge_android.databinding.ItemChucknorrisFactBinding
@@ -34,11 +36,36 @@ class FactsAdapter(
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(fact: Fact, onClick: (Fact) -> Unit) = with(binding) {
 
+           setupValues(fact)
+
+            itemView.setOnClickListener {
+                onClick(fact)
+            }
+
+            binding.sharebtn.setOnClickListener {
+                shareLink(fact)
+            }
+
+        }
+
+        private fun shareLink(fact:Fact){
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, "${fact.url}")
+                type = "text/plain"
+            }
+
+            val shareIntent = Intent.createChooser(sendIntent, "${fact.value}")
+            binding.root.context.startActivity(shareIntent)
+        }
+
+        private fun setupValues(fact: Fact){
+
             binding.tVfunFact.text = fact.value
             fact.value?.let{ valor->
 
                 if(valor.length>80) binding.tVfunFact.textSize = 15F
-                    else binding.tVfunFact.textSize = 20F
+                else binding.tVfunFact.textSize = 20F
             }
 
             if (fact.categories?.isEmpty() == false){
@@ -46,9 +73,7 @@ class FactsAdapter(
             }else{
                 binding.chipCategories.text = binding.root.context.getString(R.string.uncategorized)
             }
-            itemView.setOnClickListener {
-                onClick(fact)
-            }
+
         }
     }
 
