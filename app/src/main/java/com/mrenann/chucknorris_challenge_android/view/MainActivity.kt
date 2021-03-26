@@ -2,11 +2,8 @@ package com.mrenann.chucknorris_challenge_android.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mrenann.chucknorris_challenge_android.R
 import com.mrenann.chucknorris_challenge_android.adapter.FactsAdapter
 import com.mrenann.chucknorris_challenge_android.databinding.ActivityMainBinding
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsViewModel
@@ -48,7 +45,5 @@ class MainActivity : AppCompatActivity() {
     private fun searchBtn(){
         viewModel.getFacts("dev")
     }
-
-
 
 }

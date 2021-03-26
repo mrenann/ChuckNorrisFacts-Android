@@ -1,15 +1,12 @@
 package com.mrenann.chucknorris_challenge_android.adapter
 
 import android.content.Intent
-import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.mrenann.chucknorris_challenge_android.R
 import com.mrenann.chucknorris_challenge_android.databinding.ItemChucknorrisFactBinding
 import com.mrenann.chucknorris_challenge_android.model.Fact
-import okhttp3.internal.immutableListOf
 import java.util.*
 
 class FactsAdapter(
