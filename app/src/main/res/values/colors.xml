@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bgLight">#FFFFFFFF</color>
     <color name="bgDark">#171A1F</color>
+    <color name="cardBg">#60656D</color>
 </resources>

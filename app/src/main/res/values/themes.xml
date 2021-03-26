@@ -13,6 +13,5 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/bgLight</item>
         <!-- Customize your theme here. -->
         <item name="android:background">@color/bgLight</item>
-        <item name="cardBackgroundColor">@color/teal_200</item>
     </style>
 </resources>

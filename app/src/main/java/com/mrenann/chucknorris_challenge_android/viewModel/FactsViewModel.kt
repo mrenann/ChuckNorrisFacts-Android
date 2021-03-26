@@ -1,19 +1,17 @@
 package com.mrenann.chucknorris_challenge_android.viewModel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mrenann.chucknorris_challenge_android.api.ResponseAPI
 import com.mrenann.chucknorris_challenge_android.business.FactsBusiness
 import com.mrenann.chucknorris_challenge_android.model.FactsResult
-import com.mrenann.chucknorris_challenge_android.repository.FactsRepository
 import kotlinx.coroutines.launch
 
 class FactsViewModel: ViewModel() {
 
     val sucess: MutableLiveData<FactsResult> = MutableLiveData()
-    val error: MutableLiveData<String> = MutableLiveData()
+    private val error: MutableLiveData<String> = MutableLiveData()
     private val detailed by lazy {
         FactsBusiness()
     }
