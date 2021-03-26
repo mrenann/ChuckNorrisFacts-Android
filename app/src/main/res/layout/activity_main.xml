@@ -16,6 +16,7 @@
         android:layout_margin="10sp"
         />
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rVfacts"
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:layout_marginTop="5sp"
