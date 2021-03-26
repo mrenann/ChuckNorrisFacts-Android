@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mrenann.chucknorris_challenge_android.view.Adapters.FactsAdapter
 import com.mrenann.chucknorris_challenge_android.databinding.ActivityMainBinding
+import com.mrenann.chucknorris_challenge_android.model.FactsResult
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsViewModel
 import kotlin.random.Random
 
@@ -20,51 +21,53 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.shimmerLayout.stopShimmer()
-        binding.shimmerLayout.visibility = View.GONE
+        shimmerStop()
 
         viewModel = ViewModelProvider(this).get(FactsViewModel::class.java)
-        setupRecyclerView()
+        setupObservables()
 
-        binding.apply {
-            iVsearch.setOnClickListener {
-                searchBtn()
-            }
-        }
+        binding.apply { iVsearch.setOnClickListener { searchBtn() } }
     }
 
-    private fun setupRecyclerView(){
+    private fun setupObservables(){
         viewModel.apply {
 
             sucess.observe(this@MainActivity){
                 binding.apply {
                     shimmerStop()
-                    rVfacts.apply {
-                        layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
-                        it.result?.let {  facts->
-                            factsAdapter.factsList = facts
-                            adapter = factsAdapter
-                        }
-                    }
+                    setupRecycler(it)
                 }
 
+
             }
 
-            error.observe(this@MainActivity){
-                binding.tVInfo.text = it
-            }
+            error.observe(this@MainActivity) { setupErrorMsg(it) }
         }
 
     }
 
-    private fun searchBtn(){
+    private fun setupRecycler(factsResult: FactsResult) {
+        binding.apply {
+            rVfacts.apply {
+                layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+                factsResult.result?.let {  facts->
+                    factsAdapter.factsList = facts
+                    adapter = factsAdapter
+                }
+            }
+        }
+    }
 
+    private fun setupErrorMsg(errorMsg : String){
+        binding.tVInfo.text = errorMsg
+    }
+
+    private fun searchBtn(){
         shimmerStart()
         factsAdapter.factsList.clear()
-        val palavras = mutableListOf("de","te","go")
-        viewModel.getFacts(palavras[Random.nextInt(0, 3)])
+        val palavras = mutableListOf("cou","dev","tech","god","chuck","the")
+        viewModel.getFacts(palavras[Random.nextInt(0, 6)])
         factsAdapter.notifyDataSetChanged()
-
     }
 
     fun shimmerStart(){
@@ -80,6 +83,5 @@ class MainActivity : AppCompatActivity() {
             visibility = View.GONE
         }
     }
-
 
 }
