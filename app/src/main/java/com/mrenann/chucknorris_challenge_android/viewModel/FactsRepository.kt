@@ -1,4 +1,4 @@
-package com.mrenann.chucknorris_challenge_android.repository
+package com.mrenann.chucknorris_challenge_android.viewModel
 
 import com.mrenann.chucknorris_challenge_android.api.APIService
 import com.mrenann.chucknorris_challenge_android.api.ResponseAPI

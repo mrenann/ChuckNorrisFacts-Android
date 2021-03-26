@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mrenann.chucknorris_challenge_android.api.ResponseAPI
-import com.mrenann.chucknorris_challenge_android.business.FactsBusiness
+import com.mrenann.chucknorris_challenge_android.model.business.FactsBusiness
 import com.mrenann.chucknorris_challenge_android.model.FactsResult
 import kotlinx.coroutines.launch
 

@@ -1,11 +1,11 @@
-package com.mrenann.chucknorris_challenge_android.view
+package com.mrenann.chucknorris_challenge_android.view.Ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mrenann.chucknorris_challenge_android.adapter.FactsAdapter
+import com.mrenann.chucknorris_challenge_android.view.Adapters.FactsAdapter
 import com.mrenann.chucknorris_challenge_android.databinding.ActivityMainBinding
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsViewModel
 

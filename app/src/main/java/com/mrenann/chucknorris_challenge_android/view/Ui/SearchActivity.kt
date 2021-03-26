@@ -1,4 +1,4 @@
-package com.mrenann.chucknorris_challenge_android.view
+package com.mrenann.chucknorris_challenge_android.view.Ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.mrenann.chucknorris_challenge_android.adapter
+package com.mrenann.chucknorris_challenge_android.view.Adapters
 
 import android.content.Intent
 import android.view.LayoutInflater
