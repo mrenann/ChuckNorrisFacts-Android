@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mrenann.chucknorris_challenge_android.view.Adapters.FactsAdapter
 import com.mrenann.chucknorris_challenge_android.databinding.ActivityMainBinding
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsViewModel
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -23,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         binding.shimmerLayout.visibility = View.GONE
 
         viewModel = ViewModelProvider(this).get(FactsViewModel::class.java)
-        viewModel.getFacts("dev")
         setupRecyclerView()
 
         binding.apply {
@@ -34,23 +34,39 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView(){
-        viewModel.sucess.observe(this){
-            binding.shimmerLayout.stopShimmer()
-            binding.shimmerLayout.visibility = View.GONE
-            binding.rVfacts.apply {
-                layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
-                it.result?.let {  facts->
-                    factsAdapter.factsList = facts
-                    adapter = factsAdapter
+        viewModel.apply {
+
+            sucess.observe(this@MainActivity){
+                binding.apply {
+                    shimmerLayout.stopShimmer()
+                    shimmerLayout.visibility = View.GONE
+                    rVfacts.apply {
+                        layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+                        it.result?.let {  facts->
+                            factsAdapter.factsList = facts
+                            adapter = factsAdapter
+                        }
+                    }
                 }
+
+            }
+
+            error.observe(this@MainActivity){
+                binding.tVInfo.text = it
             }
         }
+
     }
 
     private fun searchBtn(){
-        binding.shimmerLayout.startShimmer()
-        binding.shimmerLayout.visibility = View.VISIBLE
+        binding.shimmerLayout.apply {
+            startShimmer()
+            visibility = View.VISIBLE
+        }
+
         factsAdapter.factsList.clear()
+        val palavras = mutableListOf("de","te","go")
+        viewModel.getFacts(palavras[Random.nextInt(0, 3)])
         factsAdapter.notifyDataSetChanged()
 
     }

@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 class FactsViewModel: ViewModel() {
 
     val sucess: MutableLiveData<FactsResult> = MutableLiveData()
-    private val error: MutableLiveData<String> = MutableLiveData()
+    val error: MutableLiveData<String> = MutableLiveData()
     private val detailed by lazy {
         FactsBusiness()
     }
