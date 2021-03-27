@@ -9,11 +9,13 @@ import com.mrenann.chucknorris_challenge_android.view.Adapters.FactsAdapter
 import com.mrenann.chucknorris_challenge_android.databinding.ActivityMainBinding
 import com.mrenann.chucknorris_challenge_android.model.FactsResult
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: FactsViewModel
+    private val viewModel: FactsViewModel by viewModel()
+
 
     private val factsAdapter : FactsAdapter by lazy { FactsAdapter() }
 
@@ -23,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         shimmerStop()
 
-        viewModel = ViewModelProvider(this).get(FactsViewModel::class.java)
         setupObservables()
 
         binding.apply { iVsearch.setOnClickListener { searchBtn() } }
