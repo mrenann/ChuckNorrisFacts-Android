@@ -27,19 +27,7 @@ class MainActivity : AppCompatActivity() {
         shimmerStop()
 
         setupObservables()
-
-        binding.apply {
-            searchV.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    query?.let {word-> searchBtn(word) }
-                    return true
-                }
-
-                override fun onQueryTextChange(newText: String?): Boolean = true
-
-            })
-
-        }
+        setupSearchView()
     }
 
     private fun setupObservables(){
@@ -50,11 +38,9 @@ class MainActivity : AppCompatActivity() {
                     shimmerStop()
                     setupRecycler(it)
                 }
-
-
             }
 
-            //error.observe(this@MainActivity) { setupErrorMsg(it) }
+            error.observe(this@MainActivity) { setupMSG(it) }
         }
 
     }
@@ -64,36 +50,60 @@ class MainActivity : AppCompatActivity() {
             rVfacts.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
                 factsResult.result?.let {  facts->
-                    factsAdapter.factsList = facts
-                    adapter = factsAdapter
+                    if(facts.isEmpty()) setupMSG("Data not Found") else{
+                        factsAdapter.factsList = facts
+                        adapter = factsAdapter
+                    }
                 }
             }
         }
     }
 
-    private fun setupErrorMsg(errorMsg : String){
-        binding.tVInfo.text = errorMsg
+    private fun setupMSG(msg : String){
+        binding.apply {
+            shimmerStop()
+            infoImg.visibility = View.VISIBLE
+            infoTxt.visibility = View.VISIBLE
+            infoTxt.text = msg
+        }
     }
 
     private fun searchBtn(word: String){
+        binding.apply {
+            infoImg.visibility = View.GONE
+            infoTxt.visibility = View.GONE
+        }
         shimmerStart()
         factsAdapter.factsList.clear()
         viewModel.getFacts(word)
         factsAdapter.notifyDataSetChanged()
     }
 
-    fun shimmerStart(){
+    private fun shimmerStart(){
         binding.shimmerLayout.apply {
             startShimmer()
             visibility = View.VISIBLE
         }
     }
 
-    fun shimmerStop(){
+    private fun shimmerStop(){
         binding.shimmerLayout.apply {
             stopShimmer()
             visibility = View.GONE
         }
     }
 
+    private fun setupSearchView(){
+        binding.apply {
+            searchV.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    query?.let {word->
+                        if(word.length in 3..119) searchBtn(word)
+                        else setupMSG("Query must be more than 3 chars and less than 120 chars")
+                    }
+                    return true
+                }
+                override fun onQueryTextChange(newText: String?): Boolean = true })
+        }
+    }
 }

@@ -13,13 +13,13 @@ class FactsRepository {
                 ResponseAPI.Success(response.body())
             } else {
                 if (response.code() == 404) {
-                    ResponseAPI.Error("Dado não encontrado")
+                    ResponseAPI.Error("Data not Found")
                 } else {
-                    ResponseAPI.Error("Erro ao carregar os dados")
+                    ResponseAPI.Error("Error loading data")
                 }
             }
         }catch (exception:Exception){
-            ResponseAPI.Error("Erro ao carregar os dados")
+            ResponseAPI.Error("Error loading data")
         }
     }
 }
