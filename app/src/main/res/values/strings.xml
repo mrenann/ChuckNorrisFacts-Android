@@ -3,4 +3,6 @@
     <string name="uncategorized">UNCATEGORIZED</string>
     <string name="errorSizeQuery">Query must be more than 3 chars and less than 120 chars</string>
     <string name="notFound">Data not Found</string>
+    <string name="chucknorris_img">ChuckNorris Img</string>
+    <string name="datanotfound">Data not Found</string>
 </resources>

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dimCategory">10sp</dimen>
+    <dimen name="infoSize">30sp</dimen>
+    <dimen name="infoImgSize">250sp</dimen>
+    <dimen name="strokewidth">1sp</dimen>
+
     <dimen name="dimShareBtn">32sp</dimen>
+    <dimen name="dim_10sp">10sp</dimen>
+    <dimen name="dim_5sp">5sp</dimen>
+    <dimen name="dim_33sp">33sp</dimen>
+    <dimen name="dim_20sp">20sp</dimen>
+    <dimen name="dim_50sp">50sp</dimen>
+    <dimen name="dim_cardheight">80sp</dimen>
 </resources>
