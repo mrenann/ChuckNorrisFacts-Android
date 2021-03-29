@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mrenann.chucknorris_challenge_android.R
 import com.mrenann.chucknorris_challenge_android.view.adapters.FactsAdapter
 import com.mrenann.chucknorris_challenge_android.databinding.ActivityMainBinding
-import com.mrenann.chucknorris_challenge_android.model.FactsResult
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsViewModel
+import kotlinx.coroutines.runBlocking
+
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -23,37 +24,36 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        shimmerStop()
-
-        setupObservables()
+        loadAPIData()
+        initRecycler()
         setupSearchView()
     }
 
-    private fun setupObservables(){
+    private fun loadAPIData(){
         viewModel.apply {
-
-            sucess.observe(this@MainActivity){
-                binding.apply {
-                    shimmerStop()
-                    setupRecycler(it)
+            factsList.observe(this@MainActivity, {
+                it?.let {
+                    it.result?.let { facts->
+                        factsAdapter.factsList = facts
+                        factsAdapter.notifyDataSetChanged()
+                        binding.apply {
+                            infoImg.visibility = View.GONE
+                            infoTxt.visibility = View.GONE
+                        }
+                        initRecycler()
+                    }
                 }
-            }
-
-            error.observe(this@MainActivity) { setupMSG(it) }
+                shimmerStop()
+            })
+            errorList.observe(this@MainActivity) { setupMSG(it) }
         }
-
     }
 
-    private fun setupRecycler(factsResult: FactsResult) {
+    private fun initRecycler() {
         binding.apply {
             rVfacts.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
-                factsResult.result?.let {  facts->
-                    if(facts.isEmpty()) setupMSG(context.getString(R.string.notFound)) else{
-                        factsAdapter.factsList = facts
-                        adapter = factsAdapter
-                    }
-                }
+                adapter = factsAdapter
             }
         }
     }
@@ -61,6 +61,8 @@ class MainActivity : AppCompatActivity() {
     private fun setupMSG(msg : String){
         binding.apply {
             shimmerStop()
+            factsAdapter.factsList.clear()
+            factsAdapter.notifyDataSetChanged()
             infoImg.visibility = View.VISIBLE
             infoTxt.visibility = View.VISIBLE
             infoTxt.text = msg

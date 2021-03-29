@@ -1,13 +1,13 @@
 package com.mrenann.chucknorris_challenge_android.api
 
 import com.mrenann.chucknorris_challenge_android.model.FactsResult
-import retrofit2.Response
+import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ChuckFactsAPI {
     @GET("search")
-    suspend fun search(
+    fun search(
         @Query("query") query: String? = ""
-    ): Response<FactsResult>
+    ): Observable<FactsResult>
 }
