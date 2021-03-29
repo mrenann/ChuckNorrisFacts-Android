@@ -3,6 +3,7 @@ package com.mrenann.chucknorris_challenge_android.view.Ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mrenann.chucknorris_challenge_android.view.Adapters.FactsAdapter
@@ -27,7 +28,18 @@ class MainActivity : AppCompatActivity() {
 
         setupObservables()
 
-        binding.apply { iVsearch.setOnClickListener { searchBtn() } }
+        binding.apply {
+            searchV.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    query?.let {word-> searchBtn(word) }
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean = true
+
+            })
+
+        }
     }
 
     private fun setupObservables(){
@@ -42,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-            error.observe(this@MainActivity) { setupErrorMsg(it) }
+            //error.observe(this@MainActivity) { setupErrorMsg(it) }
         }
 
     }
@@ -63,11 +75,10 @@ class MainActivity : AppCompatActivity() {
         binding.tVInfo.text = errorMsg
     }
 
-    private fun searchBtn(){
+    private fun searchBtn(word: String){
         shimmerStart()
         factsAdapter.factsList.clear()
-        val palavras = mutableListOf("cou","dev","tech","god","chuck","the")
-        viewModel.getFacts(palavras[Random.nextInt(0, 6)])
+        viewModel.getFacts(word)
         factsAdapter.notifyDataSetChanged()
     }
 

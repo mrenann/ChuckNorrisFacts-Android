@@ -6,17 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".view.Ui.MainActivity">
 
-    <ImageView
-        android:id="@+id/iVsearch"
+    <SearchView
+        android:id="@+id/searchV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_baseline_search_24"
-        android:layout_margin="10sp"
-        />
-
-
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rVfacts"
@@ -27,19 +22,9 @@
         tools:itemCount="0"
         android:clipToPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iVsearch"
+        app:layout_constraintTop_toBottomOf="@id/searchV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-        android:id="@+id/tVInfo"
-        android:layout_width="220sp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20sp"
-        tools:text="DSDS"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerLayout"
