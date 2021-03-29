@@ -1,17 +1,16 @@
-package com.mrenann.chucknorris_challenge_android.view.Ui
+package com.mrenann.chucknorris_challenge_android.view.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mrenann.chucknorris_challenge_android.view.Adapters.FactsAdapter
+import com.mrenann.chucknorris_challenge_android.R
+import com.mrenann.chucknorris_challenge_android.view.adapters.FactsAdapter
 import com.mrenann.chucknorris_challenge_android.databinding.ActivityMainBinding
 import com.mrenann.chucknorris_challenge_android.model.FactsResult
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -50,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             rVfacts.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
                 factsResult.result?.let {  facts->
-                    if(facts.isEmpty()) setupMSG("Data not Found") else{
+                    if(facts.isEmpty()) setupMSG(context.getString(R.string.notFound)) else{
                         factsAdapter.factsList = facts
                         adapter = factsAdapter
                     }
@@ -99,7 +98,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     query?.let {word->
                         if(word.length in 3..119) searchBtn(word)
-                        else setupMSG("Query must be more than 3 chars and less than 120 chars")
+                        else setupMSG(getString(R.string.errorSizeQuery))
                     }
                     return true
                 }

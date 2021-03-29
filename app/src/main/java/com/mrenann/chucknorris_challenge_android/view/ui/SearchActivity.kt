@@ -1,9 +1,7 @@
-package com.mrenann.chucknorris_challenge_android.view.Ui
+package com.mrenann.chucknorris_challenge_android.view.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.mrenann.chucknorris_challenge_android.R
-import com.mrenann.chucknorris_challenge_android.databinding.ActivityMainBinding
 import com.mrenann.chucknorris_challenge_android.databinding.ActivitySearchBinding
 
 class SearchActivity : AppCompatActivity() {
