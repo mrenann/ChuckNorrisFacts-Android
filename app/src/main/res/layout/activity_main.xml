@@ -9,7 +9,7 @@
     <SearchView
         android:id="@+id/searchV"
         android:layout_width="match_parent"
-        android:layout_margin="5sp"
+        android:layout_margin="@dimen/dim_5sp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,7 +19,7 @@
         android:id="@+id/rVfacts"
         android:layout_width="match_parent"
         android:layout_height="0sp"
-        android:layout_marginTop="5sp"
+        android:layout_marginTop="@dimen/dim_5sp"
         tools:listitem="@layout/item_chucknorris_fact"
         tools:itemCount="0"
         android:clipToPadding="true"
@@ -62,8 +62,8 @@
 
     <ImageView
         android:id="@+id/infoImg"
-        android:layout_width="250sp"
-        android:layout_height="250sp"
+        android:layout_width="@dimen/infoImgSize"
+        android:layout_height="@dimen/infoImgSize"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,10 +76,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/infoImg"
-        tools:text="VAI DAR CERTO"
         android:visibility="gone"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="@dimen/infoSize"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
