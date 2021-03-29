@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80sp"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5sp"
@@ -18,31 +17,22 @@
 
         <TextView
             android:id="@+id/tVfunFact"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/chipCategories"
-            tools:text="Chuck Norris walked into a gay bar and came out
-         with cindy crawford chuck gets the women anytime anywhere."/>
+            android:background="@color/grey"/>
 
         <ImageView
-            android:id="@+id/sharebtn"
-            android:layout_width="@dimen/dimShareBtn"
-            android:layout_height="@dimen/dimShareBtn"
-            android:src="@drawable/ic_baseline_share_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
-
-        <com.google.android.material.chip.Chip
             android:id="@+id/chipCategories"
-            android:layout_width="wrap_content"
-            android:layout_height="33sp"
+            android:layout_width="50sp"
+            android:layout_height="20sp"
             android:text="@string/uncategorized"
-            android:backgroundTint="@color/teal_200"
+            android:layout_marginTop="5sp"
+            android:background="@color/grey"
             android:textSize="@dimen/dimCategory"
             app:layout_constraintTop_toBottomOf="@id/tVfunFact"
             app:layout_constraintBottom_toBottomOf="parent"

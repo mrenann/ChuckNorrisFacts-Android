@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dimCategory">8sp</dimen>
+    <dimen name="dimCategory">10sp</dimen>
     <dimen name="dimShareBtn">32sp</dimen>
 </resources>

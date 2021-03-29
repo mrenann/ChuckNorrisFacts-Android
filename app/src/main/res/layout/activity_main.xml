@@ -4,25 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".view.ui.MainActivity">
 
-    <ImageView
-        android:id="@+id/iVsearch"
-        android:layout_width="wrap_content"
+    <SearchView
+        android:id="@+id/searchV"
+        android:layout_width="match_parent"
+        android:layout_margin="5sp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_baseline_search_24"
-        android:layout_margin="10sp"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rVfacts"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rVfacts"
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:layout_marginTop="5sp"
+        tools:listitem="@layout/item_chucknorris_fact"
+        tools:itemCount="0"
+        android:clipToPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iVsearch"
+        app:layout_constraintTop_toBottomOf="@id/searchV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rVfacts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/shimmer_chucknorris_fact" />
+            <include layout="@layout/shimmer_chucknorris_fact"/>
+            <include layout="@layout/shimmer_chucknorris_fact"/>
+            <include layout="@layout/shimmer_chucknorris_fact"/>
+            <include layout="@layout/shimmer_chucknorris_fact"/>
+            <include layout="@layout/shimmer_chucknorris_fact"/>
+            <include layout="@layout/shimmer_chucknorris_fact" />
+            <include layout="@layout/shimmer_chucknorris_fact"/>
+            <include layout="@layout/shimmer_chucknorris_fact"/>
+            <include layout="@layout/shimmer_chucknorris_fact"/>
+            <include layout="@layout/shimmer_chucknorris_fact"/>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <ImageView
+        android:id="@+id/infoImg"
+        android:layout_width="250sp"
+        android:layout_height="250sp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/chucknorris"/>
+
+    <TextView
+        android:id="@+id/infoTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/infoImg"
+        tools:text="VAI DAR CERTO"
+        android:visibility="gone"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
