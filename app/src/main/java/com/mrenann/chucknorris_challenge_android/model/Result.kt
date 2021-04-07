@@ -5,14 +5,14 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Fact(
-    var categories: MutableList<String>?,
+    val categories: MutableList<String>?,
     @Json(name = "created_at")
-    var createdAt: String?,
+    val createdAt: String?,
     @Json(name = "icon_url")
-    var iconUrl: String?,
-    var id: String?,
+    val iconUrl: String?,
+    val id: String?,
     @Json(name = "updated_at")
-    var updatedAt: String?,
-    var url: String?,
-    var value: String?
+    val updatedAt: String?,
+    val url: String?,
+    val value: String?
 )

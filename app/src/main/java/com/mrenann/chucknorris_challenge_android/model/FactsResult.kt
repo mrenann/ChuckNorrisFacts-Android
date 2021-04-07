@@ -4,6 +4,6 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class FactsResult(
-    var result: MutableList<Fact>?,
-    var total: Int?
+    val result: MutableList<Fact>?,
+    val total: Int?
 )
