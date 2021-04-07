@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mrenann.chucknorris_challenge_android">
-
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -11,9 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:name=".MyApplication"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.ChuckNorris_Challenge_Android">
-        <activity android:name=".view.ui.SearchActivity" />
         <activity android:name=".view.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
