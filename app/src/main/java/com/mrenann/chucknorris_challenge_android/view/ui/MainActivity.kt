@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
                             infoImg.visibility = View.GONE
                             infoTxt.visibility = View.GONE
                         }
-                        initRecycler()
                     }
                 }
                 shimmerStop()
