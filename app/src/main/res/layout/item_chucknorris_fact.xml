@@ -35,7 +35,7 @@
             android:src="@drawable/ic_baseline_share_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            android:contentDescription="@string/share_btn" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipCategories"

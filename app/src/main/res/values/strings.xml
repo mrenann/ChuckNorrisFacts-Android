@@ -5,4 +5,5 @@
     <string name="notFound">Data not Found</string>
     <string name="chucknorris_img">ChuckNorris Img</string>
     <string name="datanotfound">Data not Found</string>
+    <string name="share_btn">Share Button</string>
 </resources>
