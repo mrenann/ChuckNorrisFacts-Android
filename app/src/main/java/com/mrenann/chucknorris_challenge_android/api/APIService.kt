@@ -3,7 +3,7 @@ package com.mrenann.chucknorris_challenge_android.api
 import com.mrenann.chucknorris_challenge_android.utils.Constants.Api.API_URL
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 object APIService {
     val api: ChuckFactsAPI = getApiClient().create(ChuckFactsAPI::class.java)
@@ -11,7 +11,7 @@ object APIService {
     fun getApiClient(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(API_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
