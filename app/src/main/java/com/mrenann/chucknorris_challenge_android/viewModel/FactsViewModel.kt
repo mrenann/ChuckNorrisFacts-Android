@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.mrenann.chucknorris_challenge_android.api.APIService
 import com.mrenann.chucknorris_challenge_android.api.ChuckFactsAPI
 import com.mrenann.chucknorris_challenge_android.model.FactsResult
-import com.mrenann.chucknorris_challenge_android.view.ui.MainActivity
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

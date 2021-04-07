@@ -9,7 +9,6 @@ import com.mrenann.chucknorris_challenge_android.R
 import com.mrenann.chucknorris_challenge_android.view.adapters.FactsAdapter
 import com.mrenann.chucknorris_challenge_android.databinding.ActivityMainBinding
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsViewModel
-import kotlinx.coroutines.runBlocking
 
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
