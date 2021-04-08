@@ -1,5 +1,6 @@
 package com.mrenann.chucknorris_challenge_android.view.ui
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         loadAPIData()
         initRecycler()
         setupSearchView()
@@ -34,10 +36,8 @@ class MainActivity : AppCompatActivity() {
                     it.result?.let { facts ->
                         factsAdapter.factsList = facts
                         factsAdapter.notifyDataSetChanged()
-                        binding.apply {
-                            infoImg.visibility = View.GONE
-                            infoTxt.visibility = View.GONE
-                        }
+
+                        changeVisibilityInfos(View.GONE)
                     }
                 }
                 shimmerStop()
@@ -61,17 +61,23 @@ class MainActivity : AppCompatActivity() {
             shimmerStop()
             factsAdapter.factsList.clear()
             factsAdapter.notifyDataSetChanged()
-            infoImg.visibility = View.VISIBLE
-            infoTxt.visibility = View.VISIBLE
+
+            changeVisibilityInfos(View.VISIBLE)
+
             infoTxt.text = msg
         }
     }
 
-    private fun searchBtn(word: String) {
+    private fun changeVisibilityInfos(visibility: Int){
         binding.apply {
-            infoImg.visibility = View.GONE
-            infoTxt.visibility = View.GONE
+            infoImg.visibility = visibility
+            infoTxt.visibility = visibility
         }
+    }
+
+    private fun searchBtn(word: String) {
+        changeVisibilityInfos(View.GONE)
+
         shimmerStart()
         factsAdapter.factsList.clear()
         viewModel.getFacts(word)

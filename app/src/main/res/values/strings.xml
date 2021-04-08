@@ -7,4 +7,5 @@
     <string name="datanotfound">Data not Found</string>
     <string name="share_btn">Share Button</string>
     <string name="searchFacts_hint">Search Facts...</string>
+    <string name="ask_chuck">Ask Chuck Norris what you want to know about him</string>
 </resources>
