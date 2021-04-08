@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dim_5sp"
+        android:queryHint="@string/searchFacts_hint"
+        android:queryBackground="@drawable/search_shape"
         app:layout_constraintBottom_toTopOf="@id/rVfacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
