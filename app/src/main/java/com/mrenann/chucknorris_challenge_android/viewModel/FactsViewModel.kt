@@ -2,47 +2,32 @@ package com.mrenann.chucknorris_challenge_android.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mrenann.chucknorris_challenge_android.api.APIService
-import com.mrenann.chucknorris_challenge_android.api.ChuckFactsAPI
+import androidx.lifecycle.viewModelScope
+import com.mrenann.chucknorris_challenge_android.api.ResponseAPI
 import com.mrenann.chucknorris_challenge_android.model.FactsResult
-import io.reactivex.Observer
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
+import com.mrenann.chucknorris_challenge_android.model.business.FactsBusiness
+import kotlinx.coroutines.launch
 
 class FactsViewModel: ViewModel() {
     val factsList: MutableLiveData<FactsResult> = MutableLiveData()
     val errorList: MutableLiveData<String> = MutableLiveData()
 
-    fun getFacts(query:String = "") {
-        val retroInstace = APIService.getApiClient().create(ChuckFactsAPI::class.java)
-        retroInstace.search(query)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(getFactsRx())
-
+    private val detailed by lazy {
+        FactsBusiness()
     }
 
-    private fun getFactsRx(): Observer<FactsResult> {
+    fun getFacts(query:String = "") {
+        viewModelScope.launch {
+            when(val response = detailed.getFacts(query) ) {
+                is ResponseAPI.Success -> {
+                    factsList.postValue(response.data as FactsResult)
 
-        return object : Observer<FactsResult> {
-            override fun onSubscribe(d: Disposable) {
+                }
+                is ResponseAPI.Error -> {
+                    errorList.postValue(response.message)
+                }
             }
-
-            override fun onNext(t: FactsResult) {
-                factsList.postValue(t)
-                if(t.result.isNullOrEmpty()) errorList.postValue("Data Not Found")
-            }
-
-            override fun onError(e: Throwable) {
-                factsList.postValue(null)
-                errorList.postValue(e.toString())
-            }
-
-            override fun onComplete() {
-
-            }
-
         }
     }
+
 }
