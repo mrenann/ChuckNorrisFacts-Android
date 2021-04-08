@@ -97,8 +97,7 @@ class MainActivity : AppCompatActivity() {
             searchV.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     query?.let { word ->
-                        if (word.length in 3..119) searchBtn(word)
-                        else setupMSG(getString(R.string.errorSizeQuery))
+                        searchBtn(word)
                     }
                     return true
                 }
