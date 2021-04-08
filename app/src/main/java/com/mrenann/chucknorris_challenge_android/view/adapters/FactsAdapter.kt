@@ -11,7 +11,7 @@ import java.util.*
 
 class FactsAdapter(
     var factsList: MutableList<Fact> = mutableListOf()
-): RecyclerView.Adapter<FactsAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<FactsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -29,16 +29,16 @@ class FactsAdapter(
 
     class ViewHolder(
         private val binding: ItemChucknorrisFactBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(fact: Fact) = with(binding) {
 
-           setupValues(fact)
+            setupValues(fact)
 
             binding.sharebtn.setOnClickListener { shareLink(fact) }
 
         }
 
-        private fun shareLink(fact:Fact){
+        private fun shareLink(fact: Fact) {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, "${fact.url}")
@@ -49,18 +49,18 @@ class FactsAdapter(
             binding.root.context.startActivity(shareIntent)
         }
 
-        private fun setupValues(fact: Fact){
+        private fun setupValues(fact: Fact) {
 
             binding.tVfunFact.text = fact.value
-            fact.value?.let{ valor->
+            fact.value?.let { valor ->
 
-                if(valor.length>80) binding.tVfunFact.textSize = 15F
+                if (valor.length > 80) binding.tVfunFact.textSize = 15F
                 else binding.tVfunFact.textSize = 20F
             }
 
-            if (fact.categories?.isEmpty() == false){
-                binding.chipCategories.text = fact.categories?.get(0)?.toUpperCase(Locale.ROOT)
-            }else{
+            if (fact.categories?.isEmpty() == false) {
+                binding.chipCategories.text = fact.categories[0].toUpperCase(Locale.ROOT)
+            } else {
                 binding.chipCategories.text = binding.root.context.getString(R.string.uncategorized)
             }
 

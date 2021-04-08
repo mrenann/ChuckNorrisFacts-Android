@@ -5,8 +5,8 @@ import com.mrenann.chucknorris_challenge_android.api.ResponseAPI
 
 class FactsRepository {
 
-    suspend fun getFacts(query:String = ""): ResponseAPI {
-        return try{
+    suspend fun getFacts(query: String = ""): ResponseAPI {
+        return try {
             val response = APIService.api.search(query)
             if (response.isSuccessful) {
                 ResponseAPI.Success(response.body())
@@ -17,7 +17,7 @@ class FactsRepository {
                     ResponseAPI.Error("${response.errorBody()}")
                 }
             }
-        }catch (exception:Exception){
+        } catch (exception: Exception) {
             ResponseAPI.Error("Error loading data")
         }
     }

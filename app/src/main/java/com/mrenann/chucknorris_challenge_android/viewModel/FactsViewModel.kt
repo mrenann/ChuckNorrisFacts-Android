@@ -8,7 +8,7 @@ import com.mrenann.chucknorris_challenge_android.model.FactsResult
 import com.mrenann.chucknorris_challenge_android.model.business.FactsBusiness
 import kotlinx.coroutines.launch
 
-class FactsViewModel: ViewModel() {
+class FactsViewModel : ViewModel() {
     val factsList: MutableLiveData<FactsResult> = MutableLiveData()
     val errorList: MutableLiveData<String> = MutableLiveData()
 
@@ -16,9 +16,9 @@ class FactsViewModel: ViewModel() {
         FactsBusiness()
     }
 
-    fun getFacts(query:String = "") {
+    fun getFacts(query: String = "") {
         viewModelScope.launch {
-            when(val response = detailed.getFacts(query) ) {
+            when (val response = detailed.getFacts(query)) {
                 is ResponseAPI.Success -> {
                     factsList.postValue(response.data as FactsResult)
 

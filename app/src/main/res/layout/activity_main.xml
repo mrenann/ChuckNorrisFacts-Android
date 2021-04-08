@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,37 +9,37 @@
     <SearchView
         android:id="@+id/searchV"
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/dim_5sp"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dim_5sp"
+        app:layout_constraintBottom_toTopOf="@id/rVfacts"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/rVfacts"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rVfacts"
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:layout_marginTop="@dimen/dim_5sp"
-        tools:listitem="@layout/item_chucknorris_fact"
-        tools:itemCount="0"
         android:clipToPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchV"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchV"
+        tools:itemCount="0"
+        tools:listitem="@layout/item_chucknorris_fact" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerLayout"
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:background="@color/transparent"
+        android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rVfacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:shimmer_auto_start="false"
-        android:visibility="gone"
-        android:orientation="vertical">
+        app:layout_constraintTop_toTopOf="@id/rVfacts"
+        app:shimmer_auto_start="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,16 +47,26 @@
             android:orientation="vertical">
 
             <include layout="@layout/shimmer_chucknorris_fact" />
-            <include layout="@layout/shimmer_chucknorris_fact"/>
-            <include layout="@layout/shimmer_chucknorris_fact"/>
-            <include layout="@layout/shimmer_chucknorris_fact"/>
-            <include layout="@layout/shimmer_chucknorris_fact"/>
-            <include layout="@layout/shimmer_chucknorris_fact"/>
+
             <include layout="@layout/shimmer_chucknorris_fact" />
-            <include layout="@layout/shimmer_chucknorris_fact"/>
-            <include layout="@layout/shimmer_chucknorris_fact"/>
-            <include layout="@layout/shimmer_chucknorris_fact"/>
-            <include layout="@layout/shimmer_chucknorris_fact"/>
+
+            <include layout="@layout/shimmer_chucknorris_fact" />
+
+            <include layout="@layout/shimmer_chucknorris_fact" />
+
+            <include layout="@layout/shimmer_chucknorris_fact" />
+
+            <include layout="@layout/shimmer_chucknorris_fact" />
+
+            <include layout="@layout/shimmer_chucknorris_fact" />
+
+            <include layout="@layout/shimmer_chucknorris_fact" />
+
+            <include layout="@layout/shimmer_chucknorris_fact" />
+
+            <include layout="@layout/shimmer_chucknorris_fact" />
+
+            <include layout="@layout/shimmer_chucknorris_fact" />
 
         </LinearLayout>
 
@@ -67,24 +76,23 @@
         android:id="@+id/infoImg"
         android:layout_width="@dimen/infoImgSize"
         android:layout_height="@dimen/infoImgSize"
+        android:contentDescription="@string/chucknorris_img"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/chucknorris"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/chucknorris"
-        android:contentDescription="@string/chucknorris_img" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/infoTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/infoImg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
         android:textAlignment="center"
         android:textSize="@dimen/infoSize"
-        />
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/infoImg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
