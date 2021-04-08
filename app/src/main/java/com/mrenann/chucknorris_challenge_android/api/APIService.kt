@@ -7,7 +7,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object APIService {
     val api: ChuckFactsAPI = getApiClient().create(ChuckFactsAPI::class.java)
 
-    fun getApiClient(): Retrofit {
+    private fun getApiClient(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(API_URL)
             .addConverterFactory(MoshiConverterFactory.create())
