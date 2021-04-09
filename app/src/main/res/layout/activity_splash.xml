@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/infoImg"
-        android:layout_width="@dimen/infoImgSize"
-        android:layout_height="@dimen/infoImgSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:contentDescription="@string/chucknorris_img"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:src="@drawable/cnorris"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

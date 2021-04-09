@@ -14,4 +14,9 @@
         <!-- Customize your theme here. -->
         <item name="android:background">@color/bgLight</item>
     </style>
+
+    <style name="WithoutStatus" parent="Theme.ChuckNorris_Challenge_Android">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
 </resources>
