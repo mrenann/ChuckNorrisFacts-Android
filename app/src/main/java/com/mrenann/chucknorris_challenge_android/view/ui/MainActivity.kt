@@ -1,12 +1,10 @@
 package com.mrenann.chucknorris_challenge_android.view.ui
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mrenann.chucknorris_challenge_android.R
 import com.mrenann.chucknorris_challenge_android.databinding.ActivityMainBinding
 import com.mrenann.chucknorris_challenge_android.view.adapters.FactsAdapter
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsViewModel
@@ -15,7 +13,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: FactsViewModel by viewModel()
-
 
     private val factsAdapter: FactsAdapter by lazy { FactsAdapter() }
 
@@ -102,9 +99,7 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             searchV.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    query?.let { word ->
-                        searchBtn(word)
-                    }
+                    query?.let { word -> searchBtn(word) }
                     return true
                 }
 

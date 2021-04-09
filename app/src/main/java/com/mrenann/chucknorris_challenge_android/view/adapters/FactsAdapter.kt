@@ -53,16 +53,16 @@ class FactsAdapter(
 
             binding.tVfunFact.text = fact.value
             fact.value?.let { valor ->
-
-                if (valor.length > 80) binding.tVfunFact.textSize = 15F
-                else binding.tVfunFact.textSize = 20F
+                if (valor.length > 80)
+                    binding.tVfunFact.textSize = 15F
+                else
+                    binding.tVfunFact.textSize = 20F
             }
 
-            if (fact.categories?.isEmpty() == false) {
+            if (fact.categories?.isEmpty() == false)
                 binding.chipCategories.text = fact.categories[0].toUpperCase(Locale.ROOT)
-            } else {
+            else
                 binding.chipCategories.text = binding.root.context.getString(R.string.uncategorized)
-            }
 
         }
     }

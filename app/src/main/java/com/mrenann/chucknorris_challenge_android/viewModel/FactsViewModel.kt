@@ -12,20 +12,13 @@ class FactsViewModel : ViewModel() {
     val factsList: MutableLiveData<FactsResult> = MutableLiveData()
     val errorList: MutableLiveData<String> = MutableLiveData()
 
-    private val detailed by lazy {
-        FactsBusiness()
-    }
+    private val detailed by lazy { FactsBusiness() }
 
     fun getFacts(query: String = "") {
         viewModelScope.launch {
             when (val response = detailed.getFacts(query)) {
-                is ResponseAPI.Success -> {
-                    factsList.postValue(response.data as FactsResult)
-
-                }
-                is ResponseAPI.Error -> {
-                    errorList.postValue(response.message)
-                }
+                is ResponseAPI.Success -> factsList.postValue(response.data as FactsResult)
+                is ResponseAPI.Error -> errorList.postValue(response.message)
             }
         }
     }
