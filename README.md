@@ -36,13 +36,13 @@ Porém vale a pena ressaltar que o app foi desenvolvido utilizando o Android Stu
 
 ## Screenshots
 
-<img src="https://i.imgur.com/qfJZzzi.jpg" align="left"
+<img src="https://i.imgur.com/lVqcZNY.jpg" align="left"
 width="200" hspace="10" vspace="10">
 
-<img src="https://i.imgur.com/Gj34FfJ.jpg" align="left"
+<img src="https://i.imgur.com/7K8KaV0.jpg" align="left"
 width="200" hspace="10" vspace="10">
 
-<img src="https://i.imgur.com/vLCa9F3.jpg" align="left"
+<img src="https://i.imgur.com/qZDmtsT.jpg" align="left"
 width="200" hspace="10" vspace="10">
 
 
