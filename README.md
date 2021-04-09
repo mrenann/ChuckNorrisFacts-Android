@@ -32,9 +32,13 @@ Porém vale a pena ressaltar que o app foi desenvolvido utilizando o Android Stu
 
 ## Features
 
+- Uma Splash Activity.
 - Uma Activity principal no qual temos um recyclerView e uma SearchView na qual faremos a busca dos fatos.
 
 ## Screenshots
+
+<img src="https://i.imgur.com/ddqXHlL.jpg" align="left"
+width="200" hspace="10" vspace="10">
 
 <img src="https://i.imgur.com/lVqcZNY.jpg" align="left"
 width="200" hspace="10" vspace="10">
