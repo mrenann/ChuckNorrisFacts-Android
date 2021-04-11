@@ -15,6 +15,10 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        splashToOtherActivity()
+    }
+
+    private fun splashToOtherActivity(){
         Handler(Looper.getMainLooper()).postDelayed({
             Intent(this, MainActivity::class.java).apply {
                 startActivity(this)
