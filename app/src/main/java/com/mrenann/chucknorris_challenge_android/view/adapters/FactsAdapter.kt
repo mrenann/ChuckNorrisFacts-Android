@@ -33,7 +33,6 @@ class FactsAdapter(
         fun bind(fact: Fact) = with(binding) {
 
             setupValues(fact)
-
             binding.sharebtn.setOnClickListener { shareLink(fact) }
 
         }
@@ -50,19 +49,23 @@ class FactsAdapter(
         }
 
         private fun setupValues(fact: Fact) {
+            binding.apply {
+                tVfunFact.text = fact.value
 
-            binding.tVfunFact.text = fact.value
-            fact.value?.let { valor ->
-                if (valor.length > 80)
-                    binding.tVfunFact.textSize = 15F
+                fact.value?.let { valor ->
+                    if (valor.length > 80)
+                        tVfunFact.textSize = 15F
+                    else
+                        tVfunFact.textSize = 20F
+                }
+
+                if (fact.categories?.isEmpty() == false)
+                    chipCategories.text = fact.categories[0].toUpperCase(Locale.ROOT)
                 else
-                    binding.tVfunFact.textSize = 20F
+                    chipCategories.text = root.context.getString(R.string.uncategorized)
             }
 
-            if (fact.categories?.isEmpty() == false)
-                binding.chipCategories.text = fact.categories[0].toUpperCase(Locale.ROOT)
-            else
-                binding.chipCategories.text = binding.root.context.getString(R.string.uncategorized)
+
 
         }
     }
