@@ -1,4 +1,4 @@
-package com.mrenann.chucknorris_challenge_android.api
+package com.mrenann.chucknorris_challenge_android.network
 
 import com.mrenann.chucknorris_challenge_android.utils.Constants.Api.API_URL
 import retrofit2.Retrofit
