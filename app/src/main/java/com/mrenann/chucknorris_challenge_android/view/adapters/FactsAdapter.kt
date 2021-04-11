@@ -10,6 +10,7 @@ import com.mrenann.chucknorris_challenge_android.model.Fact
 import java.util.*
 
 class FactsAdapter(
+    val onShareClicked: (Fact?) -> Unit,
     var factsList: MutableList<Fact> = mutableListOf()
 ) : RecyclerView.Adapter<FactsAdapter.ViewHolder>() {
 
@@ -24,28 +25,17 @@ class FactsAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(factsList[position])
+        holder.bind(factsList[position],onShareClicked)
     }
 
     class ViewHolder(
         private val binding: ItemChucknorrisFactBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(fact: Fact) = with(binding) {
+        fun bind(fact: Fact,onShareClicked: (Fact?) -> Unit) = with(binding) {
 
             setupValues(fact)
-            binding.sharebtn.setOnClickListener { shareLink(fact) }
+            binding.sharebtn.setOnClickListener { onShareClicked(fact) }
 
-        }
-
-        private fun shareLink(fact: Fact) {
-            val sendIntent: Intent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "${fact.url}")
-                type = "text/plain"
-            }
-
-            val shareIntent = Intent.createChooser(sendIntent, "${fact.value}")
-            binding.root.context.startActivity(shareIntent)
         }
 
         private fun setupValues(fact: Fact) {
