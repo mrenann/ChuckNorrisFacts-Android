@@ -4,10 +4,7 @@ import com.mrenann.chucknorris_challenge_android.network.response.ResponseAPI
 import com.mrenann.chucknorris_challenge_android.model.FactsResult
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsRepository
 
-class FactsBusiness {
-    private val repository: FactsRepository by lazy {
-        FactsRepository()
-    }
+class FactsBusiness(private val repository: FactsRepository) {
 
     suspend fun getFacts(query: String = ""): ResponseAPI {
         val response = repository.getFacts(query)
