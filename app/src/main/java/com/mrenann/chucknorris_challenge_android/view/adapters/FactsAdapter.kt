@@ -42,13 +42,6 @@ class FactsAdapter(
             binding.apply {
                 tVfunFact.text = fact.value
 
-                fact.value?.let { valor ->
-                    if (valor.length > 80)
-                        tVfunFact.textSize = 15F
-                    else
-                        tVfunFact.textSize = 20F
-                }
-
                 if (fact.categories?.isEmpty() == false)
                     chipCategories.text = fact.categories[0].toUpperCase(Locale.ROOT)
                 else
