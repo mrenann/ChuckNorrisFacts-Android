@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/splashAct"
+    android:id="@+id/splash_act"
     tools:context=".view.ui.SplashActivity">
 
     <ImageView
-        android:id="@+id/infoImg"
+        android:id="@+id/splashImg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/chucknorris_img"
