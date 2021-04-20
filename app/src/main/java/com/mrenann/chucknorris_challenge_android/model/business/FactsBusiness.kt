@@ -1,6 +1,6 @@
 package com.mrenann.chucknorris_challenge_android.model.business
 
-import com.mrenann.chucknorris_challenge_android.network.response.ResponseAPI
+import com.mrenann.chucknorris_challenge_android.network.ResponseAPI
 import com.mrenann.chucknorris_challenge_android.model.FactsResult
 import com.mrenann.chucknorris_challenge_android.viewModel.FactsRepository
 

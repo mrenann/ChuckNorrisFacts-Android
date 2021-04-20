@@ -1,4 +1,4 @@
-package com.mrenann.chucknorris_challenge_android.network.response
+package com.mrenann.chucknorris_challenge_android.network
 
 sealed class ResponseAPI {
     class Success(val data: Any?) : ResponseAPI()

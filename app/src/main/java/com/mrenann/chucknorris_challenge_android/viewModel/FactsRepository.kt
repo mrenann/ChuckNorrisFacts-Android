@@ -1,7 +1,7 @@
 package com.mrenann.chucknorris_challenge_android.viewModel
 
 import com.mrenann.chucknorris_challenge_android.network.APIService
-import com.mrenann.chucknorris_challenge_android.network.response.ResponseAPI
+import com.mrenann.chucknorris_challenge_android.network.ResponseAPI
 import java.net.UnknownHostException
 
 class FactsRepository {
