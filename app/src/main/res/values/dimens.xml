@@ -13,8 +13,7 @@
     <dimen name="dim_cardheight">80dp</dimen>
     <dimen name="minHeight_txt">55dp</dimen>
     <dimen name="maxHeight_txt">300dp</dimen>
-    <dimen name="MinSize_txt">15sp</dimen>
-    <dimen name="MaxSize_txt">50sp</dimen>
+    <dimen name="MinSize_txt">11sp</dimen>
     <dimen name="chip_text_size">10sp</dimen>
     <dimen name="dim_0dp">0dp</dimen>
     <dimen name="infoTxt_height">125dp</dimen>
