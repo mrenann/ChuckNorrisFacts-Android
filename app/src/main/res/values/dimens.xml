@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="infoSize">30sp</dimen>
-    <dimen name="infoImgSize">250sp</dimen>
-    <dimen name="strokewidth">1sp</dimen>
+    <dimen name="infoImgSize">250dp</dimen>
+    <dimen name="strokewidth">1dp</dimen>
 
-    <dimen name="dimShareBtn">32sp</dimen>
-    <dimen name="dim_10sp">10sp</dimen>
-    <dimen name="dim_5sp">5sp</dimen>
-    <dimen name="dim_33sp">33sp</dimen>
-    <dimen name="dim_20sp">20sp</dimen>
-    <dimen name="dim_50sp">50sp</dimen>
-    <dimen name="dim_cardheight">80sp</dimen>
+    <dimen name="dimShareBtn">32dp</dimen>
+    <dimen name="dim_10dp">10dp</dimen>
+    <dimen name="dim_5dp">5dp</dimen>
+    <dimen name="dim_33dp">33dp</dimen>
+    <dimen name="dim_20dp">20dp</dimen>
+    <dimen name="dim_50dp">50dp</dimen>
+    <dimen name="dim_cardheight">80dp</dimen>
+    <dimen name="minHeight_txt">55dp</dimen>
+    <dimen name="maxHeight_txt">300dp</dimen>
+    <dimen name="MinSize_txt">15sp</dimen>
+    <dimen name="MaxSize_txt">50sp</dimen>
+    <dimen name="chip_text_size">10sp</dimen>
+    <dimen name="dim_0dp">0dp</dimen>
+    <dimen name="infoTxt_height">125dp</dimen>
+    <dimen name="maxSize_InfoTxt">30sp</dimen>
+    <dimen name="dim_25dp">25dp</dimen>
 </resources>

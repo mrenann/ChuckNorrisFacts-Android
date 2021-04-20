@@ -4,28 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/dim_5sp"
-    android:elevation="@dimen/dim_10sp"
-    app:cardCornerRadius="@dimen/dim_10sp"
+    android:layout_margin="@dimen/dim_5dp"
+    android:elevation="@dimen/dim_10dp"
+    app:cardCornerRadius="@dimen/dim_10dp"
     app:strokeColor="@color/grey"
     app:strokeWidth="@dimen/strokewidth">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/dim_10sp">
+        android:padding="@dimen/dim_10dp">
 
         <TextView
             android:id="@+id/tVfunFact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="55dp"
-            android:maxHeight="300dp"
+            android:minHeight="@dimen/minHeight_txt"
+            android:maxHeight="@dimen/maxHeight_txt"
             android:justificationMode="inter_word"
             android:textAlignment="textStart"
             android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="15sp"
-            android:autoSizeMaxTextSize="50sp"
+            android:autoSizeMinTextSize="@dimen/MinSize_txt"
+            android:autoSizeMaxTextSize="@dimen/MaxSize_txt"
             app:layout_constraintBottom_toTopOf="@+id/chipCategories"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,10 +45,10 @@
         <com.google.android.material.chip.Chip
             android:id="@+id/chipCategories"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/dim_33sp"
+            android:layout_height="@dimen/dim_33dp"
             android:backgroundTint="@color/teal_200"
             android:text="@string/uncategorized"
-            android:textSize="@dimen/dim_10sp"
+            android:textSize="@dimen/chip_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tVfunFact" />
