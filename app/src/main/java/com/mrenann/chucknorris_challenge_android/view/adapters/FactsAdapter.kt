@@ -9,7 +9,7 @@ import com.mrenann.chucknorris_challenge_android.model.Fact
 import java.util.*
 
 class FactsAdapter(
-    val onShareClicked: (Fact?) -> Unit,
+    private val onShareClicked: (Fact?) -> Unit,
     var factsList: MutableList<Fact> = mutableListOf()
 ) : RecyclerView.Adapter<FactsAdapter.ViewHolder>() {
 
@@ -31,10 +31,8 @@ class FactsAdapter(
         private val binding: ItemChucknorrisFactBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(fact: Fact,onShareClicked: (Fact?) -> Unit) = with(binding) {
-
             setupValues(fact)
             binding.sharebtn.setOnClickListener { onShareClicked(fact) }
-
         }
 
         private fun setupValues(fact: Fact) {
@@ -42,12 +40,10 @@ class FactsAdapter(
                 tVfunFact.text = fact.value
 
                 if (fact.categories?.isEmpty() == false)
-                    chipCategories.text = fact.categories[0].toUpperCase(Locale.ROOT)
+                    chipCategories.text = fact.categories[0]
                 else
                     chipCategories.text = root.context.getString(R.string.uncategorized)
             }
-
-
 
         }
     }

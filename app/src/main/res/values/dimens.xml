@@ -14,9 +14,10 @@
     <dimen name="minHeight_txt">55dp</dimen>
     <dimen name="maxHeight_txt">300dp</dimen>
     <dimen name="MinSize_txt">11sp</dimen>
-    <dimen name="chip_text_size">10sp</dimen>
+    <dimen name="chip_text_size">12sp</dimen>
     <dimen name="dim_0dp">0dp</dimen>
     <dimen name="infoTxt_height">125dp</dimen>
     <dimen name="maxSize_InfoTxt">30sp</dimen>
     <dimen name="dim_25dp">25dp</dimen>
+    <dimen name="dim_40dp">40dp</dimen>
 </resources>
