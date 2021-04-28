@@ -40,10 +40,16 @@ Porém vale a pena ressaltar que o app foi desenvolvido utilizando o Android Stu
 <img src="https://i.imgur.com/ddqXHlL.jpg" align="left"
 width="200" hspace="10" vspace="10">
 
-<img src="https://i.imgur.com/lVqcZNY.jpg" align="left"
+<img src="https://i.imgur.com/YAiaYPi.jpg" align="left"
 width="200" hspace="10" vspace="10">
 
-<img src="https://i.imgur.com/7K8KaV0.jpg" align="left"
+<img src="https://i.imgur.com/r2dflos.jpg" align="left"
+width="200" hspace="10" vspace="10">
+
+<img src="https://i.imgur.com/2tmXxnF.jpg" align="left"
+width="200" hspace="10" vspace="10">
+
+<img src="https://i.imgur.com/UM8rEu8.jpg" align="left"
 width="200" hspace="10" vspace="10">
 
 <img src="https://i.imgur.com/qZDmtsT.jpg" align="left"
